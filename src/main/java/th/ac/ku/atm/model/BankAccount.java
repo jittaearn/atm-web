@@ -1,19 +1,14 @@
 package th.ac.ku.atm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class BankAccount {
 
     private int id;
     private int customerId;
     private String type;
     private double balance;
-
-    //  ..Generate.. Getters, Setters, toString()
-    public BankAccount(int id, int customerId, String type, double balance) {
-        this.id = id;
-        this.customerId = customerId;
-        this.type = type;
-        this.balance = balance;
-    }
 
     public int getId() {
         return id;
@@ -28,7 +23,7 @@ public class BankAccount {
     }
 
     public void setCustomerId(int customerId) {
-        this.id = customerId;
+        this.customerId = customerId;
     }
 
     public String getType() {
@@ -39,9 +34,22 @@ public class BankAccount {
         this.type = type;
     }
 
-    public Double getBalance() { return balance; }
+    public double getBalance() {
+        return balance;
+    }
 
-    public void setBalance(Double balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
+
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "id=" + id +
+                ", customerId=" + customerId +
+                ", type='" + type + '\'' +
+                ", balance=" + balance +
+                '}';
+    }
 }
+
