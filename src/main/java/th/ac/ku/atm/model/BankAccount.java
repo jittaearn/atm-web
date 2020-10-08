@@ -23,11 +23,11 @@ public class BankAccount {
         this.id = id;
     }
 
-    public int getCustomerIdId() {
+    public int getCustomerId() {
         return customerId;
     }
 
-    public void setCustomerIdId(int customerId) {
+    public void setCustomerId(int customerId) {
         this.id = customerId;
     }
 
