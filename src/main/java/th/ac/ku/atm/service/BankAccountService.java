@@ -43,10 +43,6 @@ public class BankAccountService {
         accountList.add(bankaccount);
     }
 
-    public List<BankAccount> getBankAccount() {
-        return new ArrayList<>(this.accountList);
-    }
-
     public BankAccount findBankAccount(int id) {
         for (BankAccount customer : accountList) {
             if (customer.getId() == id)
@@ -54,4 +50,22 @@ public class BankAccountService {
         }
         return null;
     }
+
+    public void openAccount(BankAccount bankAccount) {
+        String url = "http://localhost:8091/api/bankaccount";
+
+        restTemplate.postForObject(url, bankAccount, BankAccount.class);
+    }
+
+    public List<BankAccount> getBankAccounts() {
+        String url = "http://localhost:8091/api/bankaccount/";
+
+        ResponseEntity<BankAccount[]> response =
+                restTemplate.getForEntity(url, BankAccount[].class);
+
+        BankAccount[] accounts = response.getBody();
+        return Arrays.asList(accounts);
+    }
+
+
 }
