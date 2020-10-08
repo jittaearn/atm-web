@@ -1,5 +1,4 @@
 package th.ac.ku.atm.model;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -19,10 +18,12 @@ public class BankAccount {
     }
 
     public int getCustomerId() {
+
         return customerId;
     }
 
     public void setCustomerId(int customerId) {
+
         this.customerId = customerId;
     }
 
@@ -42,14 +43,5 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    @Override
-    public String toString() {
-        return "BankAccount{" +
-                "id=" + id +
-                ", customerId=" + customerId +
-                ", type='" + type + '\'' +
-                ", balance=" + balance +
-                '}';
-    }
 }
 
